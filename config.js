@@ -11,7 +11,7 @@
    ============================================================ */
 const CONFIG = {
   // Número do WhatsApp em formato internacional, só dígitos (DDI + DDD + número).
-  whatsappNumber: "5511999999999",
+  whatsappNumber: "351923505221",
 
   // Mensagem que já vem preenchida ao abrir o WhatsApp, por idioma.
   whatsappMessage: {
@@ -20,11 +20,11 @@ const CONFIG = {
   },
 
   // Telefone para exibição e para o botão "Ligar" / "Call" (pode ser igual ao WhatsApp).
-  phoneDisplay: "(11) 99999-9999",
-  phoneDial: "+5511999999999",
+  phoneDisplay: "923 505 221",
+  phoneDial: "+351923505221",
 
   // E-mail de contato.
-  email: "contato@reparosgeniais.com.br",
+  email: "reparosgeniais@gmail.com",
 
   // Horário de atendimento, por idioma.
   hours: {
@@ -34,7 +34,7 @@ const CONFIG = {
 
   // Área de atuação / texto livre, por idioma.
   city: {
-    pt: "Atendemos toda a região — consulte disponibilidade",
-    en: "Serving the whole area — ask about availability"
+    pt: "Atendemos toda a região do Algarve e Alentejo — consulte disponibilidade",
+    en: "We serve the entire Algarve and Alentejo region — ask about availability"
   }
 };
