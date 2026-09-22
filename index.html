@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reparos Geniais — Reformas, reparos e montagens para sua casa</title>
+<meta name="description" content="Reformas em geral, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas gerais, reparos hidráulicos e de alvenaria. Peça seu orçamento por WhatsApp, telefone ou e-mail.">
+<meta name="theme-color" content="#1B2A38">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Reparos Geniais — Reformas, reparos e montagens">
+<meta property="og:description" content="Cuidamos da sua casa: reformas, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas, hidráulica e alvenaria.">
+<meta property="og:type" content="website">
+
+<!-- Favicon simples via SVG inline -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231B2A38'/%3E%3Cpath d='M14.5 4.5a4 4 0 0 0-5.4 4.9L4 14.5V18h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z' fill='%23D98E2B'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     CONFIGURAÇÃO VISUAL — tokens de design
+     ============================================================ */
+  :root{
+    --paper:      #EEF1EE;   /* fundo principal, papel técnico frio */
+    --paper-alt:  #E3E8E1;   /* fundo de seções alternadas */
+    --card:       #F7F8F5;   /* cartões sobre o papel */
+    --ink:        #19232C;   /* texto principal, quase-preto azulado */
+    --ink-soft:   #4B5B63;   /* texto secundário */
+    --line:       #C6CFC7;   /* linhas finas / bordas técnicas */
+    --line-soft:  #D8DFD8;
+    --accent:     #D98E2B;   /* ocre — cor de ferramenta */
+    --accent-dk:  #B4741A;   /* ocre escuro, hover */
+    --blue-deep:  #1B2A38;   /* azul oficina, seções escuras */
+    --blue-deep-2:#243A4B;
+    --whatsapp:   #2E9E63;   /* verde discreto, não o verde-limão de marca */
+    --radius:     3px;
+    --maxw:       1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.12;
+    margin: 0;
+    color: var(--ink);
+  }
+  p{ margin: 0; }
+  a{ color: inherit; text-decoration: none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family: inherit; cursor: pointer; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 640px){ .wrap{ padding: 0 20px; } }
+
+  /* ---------- Marca / crosshair ---------- */
+  .mark{ width:16px; height:16px; flex:0 0 auto; }
+  .mark circle{ fill:none; stroke:var(--accent); stroke-width:1.4; }
+  .mark line{ stroke:var(--accent); stroke-width:1.4; }
+
+  /* ============================================================
+     HEADER
+     ============================================================ */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(238,241,238,0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 72px;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo-word{ font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem; letter-spacing:.01em; }
+  .logo-word span{ color: var(--accent); }
+
+  nav.primary-nav{ display:flex; align-items:center; gap:32px; }
+  nav.primary-nav a{
+    font-size:0.94rem; color: var(--ink-soft);
+    padding: 4px 2px; border-bottom: 1px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.primary-nav a:hover{ color: var(--ink); border-color: var(--accent); }
+
+  .header-cta{ display:flex; align-items:center; gap:14px; }
+  .hamburger{
+    display:none; width:38px; height:38px; border:1px solid var(--line);
+    background:var(--card); border-radius: var(--radius);
+    align-items:center; justify-content:center;
+  }
+  .hamburger .bars, .hamburger .bars::before, .hamburger .bars::after{
+    content:""; display:block; width:16px; height:1.5px; background: var(--ink);
+    position:relative;
+  }
+  .hamburger .bars::before{ position:absolute; top:-5px; }
+  .hamburger .bars::after{ position:absolute; top:5px; }
+
+  /* ---------- Botões ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding: 13px 22px; border-radius: var(--radius);
+    font-size: 0.96rem; font-weight: 600; white-space:nowrap;
+    border: 1px solid transparent; transition: transform .12s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:active{ transform: translateY(1px); }
+  .btn svg{ width:18px; height:18px; flex:0 0 auto; }
+  .btn-primary{ background: var(--accent); color: #1B1204; }
+  .btn-primary:hover{ background: var(--accent-dk); }
+  .btn-outline{ background: transparent; border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover{ background: var(--ink); color: var(--paper); }
+  .btn-outline-light{ background: transparent; border-color: rgba(255,255,255,0.55); color:#fff; }
+  .btn-outline-light:hover{ background: rgba(255,255,255,0.12); }
+  .btn-sm{ padding: 9px 15px; font-size: 0.85rem; }
+  .btn-whatsapp{ background: var(--whatsapp); color:#fff; }
+  .btn-whatsapp:hover{ background:#25824F; }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    position: relative; overflow:hidden;
+    padding: 76px 0 88px;
+    background-image:
+      linear-gradient(var(--paper) 0%, var(--paper) 100%),
+      linear-gradient(90deg, rgba(27,42,56,0.05) 1px, transparent 1px),
+      linear-gradient(rgba(27,42,56,0.05) 1px, transparent 1px);
+    background-size: auto, 42px 42px, 42px 42px;
+    background-position: center;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items:start;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 22px;
+  }
+  .hero h1{
+    font-size: clamp(2.3rem, 4.1vw, 3.4rem);
+    letter-spacing: -0.01em;
+    max-width: 13ch;
+  }
+  .hero-sub{
+    margin-top: 22px; max-width: 46ch;
+    font-size: 1.08rem; color: var(--ink-soft);
+  }
+  .hero-sub strong{ color: var(--ink); font-weight:600; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top: 34px; }
+  .hero-note{
+    margin-top: 20px; font-size: 0.86rem; color: var(--ink-soft);
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-note .dot{ width:6px; height:6px; border-radius:50%; background: var(--whatsapp); flex:0 0 auto; }
+
+  /* ---------- painel "ordem de serviço" ---------- */
+  .spec-panel{
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 24px;
+    position: relative;
+  }
+  .spec-panel::before, .spec-panel::after,
+  .spec-panel .corner-tl, .spec-panel .corner-br{
+    content:""; position:absolute; width:11px; height:11px;
+    border-top:1.4px solid var(--accent); border-left:1.4px solid var(--accent);
+  }
+  .spec-panel::before{ top:-1px; left:-1px; }
+  .spec-panel::after{ bottom:-1px; right:-1px; transform: rotate(180deg); }
+  .spec-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 6px;
+  }
+  .spec-head .t1{ font-family:'Fraunces',serif; font-weight:600; font-size:1.02rem; }
+  .spec-head .t2{ font-size:0.78rem; color: var(--ink-soft); }
+  .spec-list{ list-style:none; margin:0; padding:0; }
+  .spec-list li{
+    display:flex; align-items:center; gap:12px;
+    padding: 13px 0; border-bottom: 1px dashed var(--line-soft);
+    font-size: 0.94rem;
+  }
+  .spec-list li:last-child{ border-bottom:none; }
+  .spec-list svg{ width:19px; height:19px; color: var(--accent); flex:0 0 auto; }
+
+  /* ============================================================
+     SEÇÃO GENÉRICA
+     ============================================================ */
+  section{ padding: 84px 0; }
+  .section-head{ max-width: 640px; margin-bottom: 48px; }
+  .section-head .eyebrow{ margin-bottom: 14px; }
+  .section-head h2{ font-size: clamp(1.7rem, 2.8vw, 2.3rem); }
+  .section-head p{ margin-top: 14px; color: var(--ink-soft); font-size: 1.03rem; }
+
+  /* ---------- Serviços ---------- */
+  .services-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+  }
+  .service-card{
+    background: var(--card); padding: 30px 26px;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .service-card.wide{ grid-column: span 2; }
+  .service-icon{
+    width:44px; height:44px; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; border-radius: var(--radius);
+  }
+  .service-icon svg{ width:23px; height:23px; color: var(--accent); }
+  .service-card h3{ font-size: 1.08rem; font-weight:600; }
+  .service-card p{ color: var(--ink-soft); font-size: 0.93rem; }
+  .service-tag{
+    margin-top:auto; font-size:0.78rem; color: var(--accent-dk); font-weight:600;
+  }
+
+  @media (max-width: 900px){
+    .services-grid{ grid-template-columns: repeat(2,1fr); }
+    .service-card.wide{ grid-column: span 2; }
+  }
+  @media (max-width: 620px){
+    .services-grid{ grid-template-columns: 1fr; }
+    .service-card.wide{ grid-column: span 1; }
+  }
+
+  /* ---------- Como funciona ---------- */
+  .steps-wrap{ background: var(--paper-alt); }
+  .steps{
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 0; position:relative;
+  }
+  .step{ padding: 0 22px 0 0; position:relative; }
+  .step:not(:last-child)::after{
+    content:""; position:absolute; top:19px; right:-11px; width:22px; height:1px;
+    background: repeating-linear-gradient(90deg, var(--ink-soft) 0 4px, transparent 4px 8px);
+  }
+  .step-num{
+    width:38px; height:38px; border-radius:50%; border:1.4px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:600; font-size:0.95rem;
+    margin-bottom: 18px;
+  }
+  .step h3{ font-size: 1.02rem; font-weight:600; margin-bottom:8px; }
+  .step p{ font-size: 0.9rem; color: var(--ink-soft); }
+
+  @media (max-width: 800px){
+    .steps{ grid-template-columns: 1fr 1fr; gap: 34px 22px; }
+    .step:not(:last-child)::after{ display:none; }
+  }
+  @media (max-width: 460px){
+    .steps{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Confiança ---------- */
+  .trust-row{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+    border-top: 1px solid var(--line); padding-top: 40px; margin-top: 8px;
+  }
+  .trust-item{ display:flex; align-items:flex-start; gap:12px; }
+  .trust-item svg{ width:20px; height:20px; color:var(--accent); flex:0 0 auto; margin-top:2px; }
+  .trust-item p{ font-size: 0.92rem; color: var(--ink-soft); }
+  .trust-item strong{ display:block; color:var(--ink); font-weight:600; font-size:0.96rem; margin-bottom:3px; }
+  @media (max-width: 800px){ .trust-row{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .trust-row{ grid-template-columns: 1fr; } }
+
+  /* ---------- Contato ---------- */
+  .contact{
+    background: var(--blue-deep);
+    background-image: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-deep-2) 100%);
+    color: #fff; position:relative; overflow:hidden;
+  }
+  .contact::before{
+    content:""; position:absolute; inset:0;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+                       linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+  .contact-inner{ position:relative; display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items:center; }
+  .contact h2{ color:#fff; font-size: clamp(1.7rem, 3vw, 2.35rem); max-width: 15ch; }
+  .contact-sub{ margin-top:16px; color: rgba(255,255,255,0.72); max-width: 46ch; font-size:1.02rem; }
+  .contact-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+
+  .contact-card{
+    background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16);
+    border-radius: var(--radius); padding: 26px;
+  }
+  .contact-line{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.14);
+  }
+  .contact-line:last-child{ border-bottom:none; }
+  .contact-line .label{ font-size:0.78rem; color: rgba(255,255,255,0.6); }
+  .contact-line .value{ font-size:0.98rem; font-weight:500; }
+  .copy-btn{
+    background:transparent; border:1px solid rgba(255,255,255,0.3); color:#fff;
+    font-size:0.75rem; padding:6px 10px; border-radius: var(--radius);
+  }
+  .copy-btn:hover{ background: rgba(255,255,255,0.12); }
+
+  @media (max-width: 860px){ .contact-inner{ grid-template-columns: 1fr; } }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer{ background: var(--ink); color: rgba(255,255,255,0.66); padding: 40px 0; }
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+    font-size: 0.86rem;
+  }
+  .footer-row .logo-word{ color:#fff; }
+  .footer-links{ display:flex; gap:22px; flex-wrap:wrap; }
+  .footer-links a:hover{ color:#fff; }
+
+  /* ============================================================
+     BOTÃO FLUTUANTE WHATSAPP
+     ============================================================ */
+  .float-wa{
+    position: fixed; right: 22px; bottom: 22px; z-index: 60;
+    width: 58px; height:58px; border-radius:50%;
+    background: var(--whatsapp); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  }
+  .float-wa svg{ width:26px; height:26px; }
+  .float-wa .ring{
+    position:absolute; inset:-6px; border-radius:50%;
+    border: 1.5px solid var(--whatsapp); opacity:0;
+    animation: ring-pulse 2.8s ease-out infinite;
+  }
+  @keyframes ring-pulse{
+    0%{ transform: scale(0.9); opacity:0.55; }
+    70%{ transform: scale(1.35); opacity:0; }
+    100%{ opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .float-wa .ring{ animation:none; display:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ============================================================
+     RESPONSIVO GERAL
+     ============================================================ */
+  @media (max-width: 900px){
+    nav.primary-nav{ display:none; }
+    .hero-grid{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px){
+    .header-cta .btn span.long{ display:none; }
+    section{ padding: 60px 0; }
+    .hero{ padding: 52px 0 60px; }
+  }
+
+  /* menu mobile */
+  .mobile-nav{
+    display:none; flex-direction:column; gap:2px;
+    border-top:1px solid var(--line); background: var(--paper);
+  }
+  .mobile-nav.open{ display:flex; }
+  .mobile-nav a{
+    padding: 15px 28px; border-bottom: 1px solid var(--line-soft); font-size:0.98rem; color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     CABEÇALHO
+     ============================================================ -->
+<header>
+  <div class="wrap header-row">
+    <a href="#topo" class="logo">
+      <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
+      <span class="logo-word">Reparos <span>Geniais</span></span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-primary btn-sm js-wa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
+        <span class="long">Chamar no WhatsApp</span>
+      </a>
+      <button class="hamburger" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="bars"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#servicos">Serviços</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#contato">Contato</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<main id="topo">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">
+        <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
+        Manutenção e reformas residenciais
+      </div>
+      <h1>Cuidamos da sua casa do reparo pequeno à reforma completa.</h1>
+      <p class="hero-sub">
+        Fazemos <strong>reformas em geral</strong>, <strong>bricolagem</strong> e trabalhos diversos,
+        <strong>montagem de móveis</strong> e <strong>instalação de eletrodomésticos</strong> —
+        seu aparelho instalado conforme as recomendações do fabricante. Também atendemos com
+        <strong>limpezas gerais</strong>, <strong>reparos hidráulicos</strong> e <strong>reparos de alvenaria</strong>.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary js-wa" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="btn btn-outline js-tel" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+          Ligar agora
+        </a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> Resposta rápida por WhatsApp · orçamento sem compromisso</div>
+    </div>
+
+    <div class="spec-panel">
+      <span class="corner-tl"></span>
+      <div class="spec-head">
+        <span class="t1">O que fazemos</span>
+        <span class="t2">7 frentes de serviço</span>
+      </div>
+      <ul class="spec-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg> Reformas em geral</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5a4 4 0 0 0-5.4 4.9L4 13.5V17h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg> Bricolagem e trabalhos diversos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="12" y1="11" x2="12" y2="20"/></svg> Montagem de móveis</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="8" rx="2"/><line x1="9" y1="8" x2="9" y2="5"/><line x1="13" y1="8" x2="13" y2="5"/><line x1="14" y1="12" x2="19" y2="12"/></svg> Instalação de eletrodomésticos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 11h-9L6 8z"/><path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M4 8h16"/></svg> Limpezas gerais</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg> Reparos hidráulicos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="13" width="16" height="4"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="15" y1="5" x2="15" y2="9"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="18" y1="13" x2="18" y2="17"/></svg> Reparos de alvenaria</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVIÇOS
+     ============================================================ -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">
+        <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
+        Serviços
+      </div>
+      <h2>Um time só para resolver o que a casa precisa</h2>
+      <p>Do reparo rápido à reforma inteira — atendemos residências e pequenos comércios com o mesmo cuidado.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card wide">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <h3>Reformas em geral</h3>
+        <p>Da pintura e troca de piso à reforma completa de cozinha, banheiro ou ambientes inteiros — planejamos e executamos do início ao fim.</p>
+        <span class="service-tag">Orçamento na visita</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5a4 4 0 0 0-5.4 4.9L4 13.5V17h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+        <h3>Bricolagem e trabalhos diversos</h3>
+        <p>Fixar prateleira, pendurar quadro, trocar dobradiça, ajustar porta — os pequenos consertos do dia a dia, resolvidos rápido.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="12" y1="11" x2="12" y2="20"/></svg></div>
+        <h3>Montagem de móveis</h3>
+        <p>Armários, guarda-roupas, estantes e cozinhas planejadas — montamos com nível, esquadro e capricho no acabamento.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="8" rx="2"/><line x1="9" y1="8" x2="9" y2="5"/><line x1="13" y1="8" x2="13" y2="5"/><line x1="14" y1="12" x2="19" y2="12"/></svg></div>
+        <h3>Instalação de eletrodomésticos</h3>
+        <p>Instalamos seu aparelho seguindo as recomendações do fabricante — fogão, micro-ondas, máquina de lavar, ar-condicionado e outros.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 11h-9L6 8z"/><path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M4 8h16"/></svg></div>
+        <h3>Limpezas gerais</h3>
+        <p>Faxina completa, limpeza pós-obra e limpeza pesada para deixar o ambiente pronto para uso.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg></div>
+        <h3>Reparos hidráulicos</h3>
+        <p>Vazamentos, troca de torneiras e registros, ajuste de válvulas e pequenos desentupimentos.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="13" width="16" height="4"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="15" y1="5" x2="15" y2="9"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="18" y1="13" x2="18" y2="17"/></svg></div>
+        <h3>Reparos de alvenaria</h3>
+        <p>Rachaduras, reboco, assentamento de azulejo e pequenos serviços de construção civil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMO FUNCIONA
+     ============================================================ -->
+<section id="como-funciona" class="steps-wrap">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">
+        <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
+        Como funciona
+      </div>
+      <h2>Quatro passos até o serviço pronto</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Fale com a gente</h3>
+        <p>Chame no WhatsApp, ligue ou envie um e-mail contando o que você precisa.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Receba o orçamento</h3>
+        <p>Avaliamos o serviço e passamos um valor claro, sem compromisso.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Agende o melhor dia</h3>
+        <p>Combinamos data e horário que encaixem na sua rotina.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Serviço concluído</h3>
+        <p>Executamos o trabalho com cuidado e deixamos tudo limpo ao final.</p>
+      </div>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        <p><strong>Orçamento sem compromisso</strong>Você só decide depois de saber o valor.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+        <p><strong>Atendimento rápido</strong>Retorno ágil por WhatsApp, telefone ou e-mail.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg>
+        <p><strong>Recomendações do fabricante</strong>Eletrodomésticos instalados do jeito certo.</p>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/></svg>
+        <p><strong>Casa e comércio</strong>Atendemos residências e pequenos negócios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTATO
+     ============================================================ -->
+<section id="contato" class="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <h2>Vamos resolver isso agora?</h2>
+      <p class="contact-sub">Conte o que precisa e a gente já te responde com o orçamento. É rápido e sem compromisso.</p>
+      <div class="contact-ctas">
+        <a class="btn btn-whatsapp js-wa" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
+          WhatsApp
+        </a>
+        <a class="btn btn-outline-light js-tel" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+          Ligar
+        </a>
+        <a class="btn btn-outline-light js-email" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg>
+          E-mail
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-line">
+        <span class="label">WhatsApp / Telefone</span>
+        <span class="value js-phone-display">—</span>
+        <button class="copy-btn" data-copy-target="phone">copiar</button>
+      </div>
+      <div class="contact-line">
+        <span class="label">E-mail</span>
+        <span class="value js-email-display">—</span>
+        <button class="copy-btn" data-copy-target="email">copiar</button>
+      </div>
+      <div class="contact-line">
+        <span class="label">Atendimento</span>
+        <span class="value js-hours-display">—</span>
+      </div>
+      <div class="contact-line">
+        <span class="label">Área de atuação</span>
+        <span class="value js-city-display">—</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer>
+  <div class="wrap footer-row">
+    <span class="logo-word">Reparos Geniais</span>
+    <div class="footer-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+      <a href="#" class="js-email">E-mail</a>
+    </div>
+    <span>© <span id="year"></span> Reparos Geniais. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<!-- Botão flutuante do WhatsApp -->
+<a class="float-wa js-wa" href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <span class="ring" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
+</a>
+
+<script>
+  /* ============================================================
+     CONFIGURAÇÃO DE CONTATO — EDITE SÓ AQUI
+     Tudo abaixo se propaga automaticamente para todos os botões
+     do site (cabeçalho, hero, contato, rodapé e botão flutuante).
+     ============================================================ */
+  const CONFIG = {
+    // Número do WhatsApp em formato internacional, só dígitos (com DDI e DDD).
+    whatsappNumber: "5511999999999",
+
+    // Mensagem que já vem preenchida ao abrir o WhatsApp.
+    whatsappMessage: "Olá! Vim pelo site e gostaria de um orçamento.",
+
+    // Telefone para exibição e para o botão "Ligar" (pode ser igual ao WhatsApp).
+    phoneDisplay: "(11) 99999-9999",
+    phoneDial: "+5511999999999",
+
+    // E-mail de contato.
+    email: "contato@reparosgeniais.com.br",
+
+    // Texto livre — ajuste como quiser.
+    hours: "Segunda a sábado, 8h às 18h",
+    city: "Atendemos toda a região — consulte disponibilidade"
+  };
+  /* ============================================================ */
+
+  function buildWhatsappUrl(){
+    const msg = encodeURIComponent(CONFIG.whatsappMessage);
+    return `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
+  }
+
+  document.querySelectorAll(".js-wa").forEach(el => el.setAttribute("href", buildWhatsappUrl()));
+  document.querySelectorAll(".js-tel").forEach(el => el.setAttribute("href", `tel:${CONFIG.phoneDial}`));
+  document.querySelectorAll(".js-email").forEach(el => el.setAttribute("href", `mailto:${CONFIG.email}`));
+
+  const phoneDisplayEls = document.querySelectorAll(".js-phone-display");
+  const emailDisplayEls = document.querySelectorAll(".js-email-display");
+  const hoursDisplayEls = document.querySelectorAll(".js-hours-display");
+  const cityDisplayEls  = document.querySelectorAll(".js-city-display");
+  phoneDisplayEls.forEach(el => el.textContent = CONFIG.phoneDisplay);
+  emailDisplayEls.forEach(el => el.textContent = CONFIG.email);
+  hoursDisplayEls.forEach(el => el.textContent = CONFIG.hours);
+  cityDisplayEls.forEach(el => el.textContent = CONFIG.city);
+
+  // copiar telefone / e-mail
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const target = btn.getAttribute("data-copy-target");
+      const text = target === "phone" ? CONFIG.phoneDisplay : CONFIG.email;
+      try{
+        await navigator.clipboard.writeText(text);
+        const original = btn.textContent;
+        btn.textContent = "copiado!";
+        setTimeout(() => btn.textContent = original, 1600);
+      }catch(e){ /* clipboard indisponível, ignora silenciosamente */ }
+    });
+  });
+
+  // menu mobile
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+  menuToggle.addEventListener("click", () => {
+    const open = mobileNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
