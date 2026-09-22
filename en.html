@@ -1,256 +1,256 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reparos Geniais — Reformas, reparos e montagens para sua casa</title>
-<meta name="description" content="Reformas em geral, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas gerais, reparos hidráulicos e de alvenaria. Peça seu orçamento por WhatsApp, telefone ou e-mail.">
+<title>Reparos Geniais — Home Repairs, Renovations & Furniture Assembly</title>
+<meta name="description" content="General renovations, handyman work, furniture assembly, appliance installation, cleaning, plumbing and masonry repairs. Get a quote by WhatsApp, phone or email.">
 <meta name="theme-color" content="#1B2A38">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Reparos Geniais — Reformas, reparos e montagens">
-<meta property="og:description" content="Cuidamos da sua casa: reformas, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas, hidráulica e alvenaria.">
+<meta property="og:title" content="Reparos Geniais — Home Repairs & Renovations">
+<meta property="og:description" content="We take care of your home: renovations, handyman work, furniture assembly, appliance installation, cleaning, plumbing and masonry repairs.">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
 
-<!-- SEO multilíngue: diz ao Google que existe uma versão em inglês desta mesma página.
-     Troque "https://SEU-DOMINIO" pela URL real depois do deploy na Vercel. -->
+<!-- Multilingual SEO: tells Google the Portuguese version of this same page.
+     Replace "https://SEU-DOMINIO" with your real URL after deploying to Vercel. -->
 <link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/">
 <link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/">
 <link rel="alternate" hreflang="x-default" href="https://SEU-DOMINIO/">
-<link rel="canonical" href="https://SEU-DOMINIO/">
+<link rel="canonical" href="https://SEU-DOMINIO/en/">
 
-<!-- Favicon simples via SVG inline -->
+<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231B2A38'/%3E%3Cpath d='M14.5 4.5a4 4 0 0 0-5.4 4.9L4 14.5V18h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z' fill='%23D98E2B'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
-<!-- Aviso automático para quem chega com o navegador em outro idioma -->
+<!-- Automatic notice for visitors whose browser is set to Portuguese -->
 <div class="lang-banner" id="langBanner">
   <div class="wrap lang-banner-inner">
-    <span>Reading this in English would be easier? <a href="/en/">View this page in English</a>.</span>
-    <button class="close-banner" id="closeLangBanner" aria-label="Fechar aviso">×</button>
+    <span>Prefere ler em português? <a href="/">Ver esta página em português</a>.</span>
+    <button class="close-banner" id="closeLangBanner" aria-label="Close notice">×</button>
   </div>
 </div>
 
 <!-- ============================================================
-     CABEÇALHO
+     HEADER
      ============================================================ -->
 <header>
   <div class="wrap header-row">
-    <a href="#topo" class="logo">
+    <a href="#top" class="logo">
       <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
       <span class="logo-word">Reparos <span>Geniais</span></span>
     </a>
 
-    <nav class="primary-nav" aria-label="Navegação principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#contato">Contato</a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <div class="header-cta">
-      <a class="lang-switch" href="/en/" hreflang="en">
-        <span class="current">PT</span> / EN
+      <a class="lang-switch" href="/" hreflang="pt-BR">
+        PT / <span class="current">EN</span>
       </a>
       <a class="btn btn-primary btn-sm js-wa" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
-        <span class="long">Chamar no WhatsApp</span>
+        <span class="long">Message on WhatsApp</span>
       </a>
-      <button class="hamburger" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span class="bars"></span>
       </button>
     </div>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="#servicos">Serviços</a>
-    <a href="#como-funciona">Como funciona</a>
-    <a href="#contato">Contato</a>
-    <a href="/en/">View in English</a>
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#contact">Contact</a>
+    <a href="/">Ver em português</a>
   </div>
 </header>
 
 <!-- ============================================================
      HERO
      ============================================================ -->
-<main id="topo">
+<main id="top">
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">
         <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
-        Manutenção e reformas residenciais
+        Home repairs & renovations
       </div>
-      <h1>Cuidamos da sua casa do reparo pequeno à reforma completa.</h1>
+      <h1>We take care of your home, from a quick fix to a full renovation.</h1>
       <p class="hero-sub">
-        Fazemos <strong>reformas em geral</strong>, <strong>bricolagem</strong> e trabalhos diversos,
-        <strong>montagem de móveis</strong> e <strong>instalação de eletrodomésticos</strong> —
-        seu aparelho instalado conforme as recomendações do fabricante. Também atendemos com
-        <strong>limpezas gerais</strong>, <strong>reparos hidráulicos</strong> e <strong>reparos de alvenaria</strong>.
+        We handle <strong>general renovations</strong>, <strong>handyman work</strong> of all kinds,
+        <strong>furniture assembly</strong> and <strong>appliance installation</strong> —
+        every appliance installed to the manufacturer's guidelines. We also offer
+        <strong>general cleaning</strong>, <strong>plumbing repairs</strong> and <strong>masonry repairs</strong>.
       </p>
       <div class="hero-ctas">
         <a class="btn btn-primary js-wa" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
-          Chamar no WhatsApp
+          Message on WhatsApp
         </a>
         <a class="btn btn-outline js-tel" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
-          Ligar agora
+          Call now
         </a>
       </div>
-      <div class="hero-note"><span class="dot"></span> Resposta rápida por WhatsApp · orçamento sem compromisso</div>
+      <div class="hero-note"><span class="dot"></span> Fast reply on WhatsApp · free, no-obligation quote</div>
     </div>
 
     <div class="spec-panel">
       <div class="spec-head">
-        <span class="t1">O que fazemos</span>
-        <span class="t2">7 frentes de serviço</span>
+        <span class="t1">What we do</span>
+        <span class="t2">7 service areas</span>
       </div>
       <ul class="spec-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg> Reformas em geral</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5a4 4 0 0 0-5.4 4.9L4 13.5V17h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg> Bricolagem e trabalhos diversos</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="12" y1="11" x2="12" y2="20"/></svg> Montagem de móveis</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="8" rx="2"/><line x1="9" y1="8" x2="9" y2="5"/><line x1="13" y1="8" x2="13" y2="5"/><line x1="14" y1="12" x2="19" y2="12"/></svg> Instalação de eletrodomésticos</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 11h-9L6 8z"/><path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M4 8h16"/></svg> Limpezas gerais</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg> Reparos hidráulicos</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="13" width="16" height="4"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="15" y1="5" x2="15" y2="9"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="18" y1="13" x2="18" y2="17"/></svg> Reparos de alvenaria</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg> General renovations</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5a4 4 0 0 0-5.4 4.9L4 13.5V17h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg> Handyman & odd jobs</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="12" y1="11" x2="12" y2="20"/></svg> Furniture assembly</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="8" rx="2"/><line x1="9" y1="8" x2="9" y2="5"/><line x1="13" y1="8" x2="13" y2="5"/><line x1="14" y1="12" x2="19" y2="12"/></svg> Appliance installation</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 11h-9L6 8z"/><path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M4 8h16"/></svg> General cleaning</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg> Plumbing repairs</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="13" width="16" height="4"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="15" y1="5" x2="15" y2="9"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="18" y1="13" x2="18" y2="17"/></svg> Masonry repairs</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SERVIÇOS
+     SERVICES
      ============================================================ -->
-<section id="servicos">
+<section id="services">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">
         <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
-        Serviços
+        Services
       </div>
-      <h2>Um time só para resolver o que a casa precisa</h2>
-      <p>Do reparo rápido à reforma inteira — atendemos residências e pequenos comércios com o mesmo cuidado.</p>
+      <h2>One team to handle everything your home needs</h2>
+      <p>From a quick repair to a full renovation — we treat every home and small business with the same care.</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card wide">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg></div>
-        <h3>Reformas em geral</h3>
-        <p>Da pintura e troca de piso à reforma completa de cozinha, banheiro ou ambientes inteiros — planejamos e executamos do início ao fim.</p>
-        <span class="service-tag">Orçamento na visita</span>
+        <h3>General renovations</h3>
+        <p>From painting and flooring to a complete kitchen, bathroom or whole-space renovation — we plan and carry out the work from start to finish.</p>
+        <span class="service-tag">Quote after a site visit</span>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5a4 4 0 0 0-5.4 4.9L4 13.5V17h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
-        <h3>Bricolagem e trabalhos diversos</h3>
-        <p>Fixar prateleira, pendurar quadro, trocar dobradiça, ajustar porta — os pequenos consertos do dia a dia, resolvidos rápido.</p>
+        <h3>Handyman & odd jobs</h3>
+        <p>Hanging a shelf, mounting a picture, fixing a hinge, adjusting a door — the everyday small fixes, taken care of quickly.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="11" x2="20" y2="11"/><line x1="12" y1="11" x2="12" y2="20"/></svg></div>
-        <h3>Montagem de móveis</h3>
-        <p>Armários, guarda-roupas, estantes e cozinhas planejadas — montamos com nível, esquadro e capricho no acabamento.</p>
+        <h3>Furniture assembly</h3>
+        <p>Wardrobes, cabinets, shelving units and fitted kitchens — assembled level, square and with a careful finish.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="8" rx="2"/><line x1="9" y1="8" x2="9" y2="5"/><line x1="13" y1="8" x2="13" y2="5"/><line x1="14" y1="12" x2="19" y2="12"/></svg></div>
-        <h3>Instalação de eletrodomésticos</h3>
-        <p>Instalamos seu aparelho seguindo as recomendações do fabricante — fogão, micro-ondas, máquina de lavar, ar-condicionado e outros.</p>
+        <h3>Appliance installation</h3>
+        <p>We install your appliance following the manufacturer's guidelines — stove, microwave, washing machine, air conditioning and more.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 11h-9L6 8z"/><path d="M8 8V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M4 8h16"/></svg></div>
-        <h3>Limpezas gerais</h3>
-        <p>Faxina completa, limpeza pós-obra e limpeza pesada para deixar o ambiente pronto para uso.</p>
+        <h3>General cleaning</h3>
+        <p>Full cleaning, post-renovation clean-up and deep cleaning to get the space ready to use.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg></div>
-        <h3>Reparos hidráulicos</h3>
-        <p>Vazamentos, troca de torneiras e registros, ajuste de válvulas e pequenos desentupimentos.</p>
+        <h3>Plumbing repairs</h3>
+        <p>Leaks, faucet and valve replacement, and minor drain clearing.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="4"/><rect x="4" y="13" width="16" height="4"/><line x1="9" y1="5" x2="9" y2="9"/><line x1="15" y1="5" x2="15" y2="9"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="18" y1="13" x2="18" y2="17"/></svg></div>
-        <h3>Reparos de alvenaria</h3>
-        <p>Rachaduras, reboco, assentamento de azulejo e pequenos serviços de construção civil.</p>
+        <h3>Masonry repairs</h3>
+        <p>Cracks, plastering, tiling and small civil construction jobs.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     COMO FUNCIONA
+     HOW IT WORKS
      ============================================================ -->
-<section id="como-funciona" class="steps-wrap">
+<section id="how-it-works" class="steps-wrap">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">
         <svg class="mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.4"/><line x1="8" y1="0.5" x2="8" y2="4"/><line x1="8" y1="12" x2="8" y2="15.5"/><line x1="0.5" y1="8" x2="4" y2="8"/><line x1="12" y1="8" x2="15.5" y2="8"/></svg>
-        Como funciona
+        How it works
       </div>
-      <h2>Quatro passos até o serviço pronto</h2>
+      <h2>Four steps to a finished job</h2>
     </div>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Fale com a gente</h3>
-        <p>Chame no WhatsApp, ligue ou envie um e-mail contando o que você precisa.</p>
+        <h3>Get in touch</h3>
+        <p>Message us on WhatsApp, call, or send an email telling us what you need.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Receba o orçamento</h3>
-        <p>Avaliamos o serviço e passamos um valor claro, sem compromisso.</p>
+        <h3>Get your quote</h3>
+        <p>We assess the job and send a clear price, no obligation.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Agende o melhor dia</h3>
-        <p>Combinamos data e horário que encaixem na sua rotina.</p>
+        <h3>Book a time</h3>
+        <p>We agree on a date and time that fits your schedule.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Serviço concluído</h3>
-        <p>Executamos o trabalho com cuidado e deixamos tudo limpo ao final.</p>
+        <h3>Job done</h3>
+        <p>We carry out the work carefully and leave the space clean.</p>
       </div>
     </div>
 
     <div class="trust-row">
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-        <p><strong>Orçamento sem compromisso</strong>Você só decide depois de saber o valor.</p>
+        <p><strong>No-obligation quote</strong>You only decide once you know the price.</p>
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
-        <p><strong>Atendimento rápido</strong>Retorno ágil por WhatsApp, telefone ou e-mail.</p>
+        <p><strong>Fast response</strong>Quick replies on WhatsApp, phone or email.</p>
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h6a4 4 0 0 1 4 4v2"/><line x1="16" y1="10" x2="16" y2="13"/><path d="M13 13a3 3 0 1 0 6 0c0-1.5-3-5-3-5s-3 3.5-3 5z"/></svg>
-        <p><strong>Recomendações do fabricante</strong>Eletrodomésticos instalados do jeito certo.</p>
+        <p><strong>Manufacturer guidelines</strong>Appliances installed the right way.</p>
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4 20 11"/><path d="M6 10v10h12V10"/></svg>
-        <p><strong>Casa e comércio</strong>Atendemos residências e pequenos negócios.</p>
+        <p><strong>Homes & small businesses</strong>We serve both residential and small commercial spaces.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CONTATO
+     CONTACT
      ============================================================ -->
-<section id="contato" class="contact">
+<section id="contact" class="contact">
   <div class="wrap contact-inner">
     <div>
-      <h2>Vamos resolver isso agora?</h2>
-      <p class="contact-sub">Conte o que precisa e a gente já te responde com o orçamento. É rápido e sem compromisso.</p>
+      <h2>Ready to get this sorted?</h2>
+      <p class="contact-sub">Tell us what you need and we'll get back to you with a quote. Fast, and with no obligation.</p>
       <div class="contact-ctas">
         <a class="btn btn-whatsapp js-wa" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
@@ -258,32 +258,32 @@
         </a>
         <a class="btn btn-outline-light js-tel" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
-          Ligar
+          Call
         </a>
         <a class="btn btn-outline-light js-email" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg>
-          E-mail
+          Email
         </a>
       </div>
     </div>
 
     <div class="contact-card">
       <div class="contact-line">
-        <span class="label">WhatsApp / Telefone</span>
+        <span class="label">WhatsApp / Phone</span>
         <span class="value js-phone-display">—</span>
-        <button class="copy-btn" data-copy-target="phone">copiar</button>
+        <button class="copy-btn" data-copy-target="phone">copy</button>
       </div>
       <div class="contact-line">
-        <span class="label">E-mail</span>
+        <span class="label">Email</span>
         <span class="value js-email-display">—</span>
-        <button class="copy-btn" data-copy-target="email">copiar</button>
+        <button class="copy-btn" data-copy-target="email">copy</button>
       </div>
       <div class="contact-line">
-        <span class="label">Atendimento</span>
+        <span class="label">Hours</span>
         <span class="value js-hours-display">—</span>
       </div>
       <div class="contact-line">
-        <span class="label">Área de atuação</span>
+        <span class="label">Service area</span>
         <span class="value js-city-display">—</span>
       </div>
     </div>
@@ -292,32 +292,32 @@
 </main>
 
 <!-- ============================================================
-     RODAPÉ
+     FOOTER
      ============================================================ -->
 <footer>
   <div class="wrap footer-row">
     <span class="logo-word">Reparos Geniais</span>
     <div class="footer-links">
-      <a href="#servicos">Serviços</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#contato">Contato</a>
-      <a href="#" class="js-email">E-mail</a>
-      <a href="/en/">English</a>
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="js-email">Email</a>
+      <a href="/">Português</a>
     </div>
-    <span>© <span id="year"></span> Reparos Geniais. Todos os direitos reservados.</span>
+    <span>© <span id="year"></span> Reparos Geniais. All rights reserved.</span>
   </div>
 </footer>
 
-<!-- Botão flutuante do WhatsApp -->
-<a class="float-wa js-wa" href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+<!-- Floating WhatsApp button -->
+<a class="float-wa js-wa" href="#" target="_blank" rel="noopener" aria-label="Message on WhatsApp">
   <span class="ring" aria-hidden="true"></span>
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
 </a>
 
-<!-- Dados de contato compartilhados entre PT e EN: edite em config.js -->
-<script src="config.js"></script>
+<!-- Contact data shared with the Portuguese page: edit in ../config.js -->
+<script src="../config.js"></script>
 <script>
-  const PAGE_LANG = "pt";
+  const PAGE_LANG = "en";
 
   function buildWhatsappUrl(){
     const msg = encodeURIComponent(CONFIG.whatsappMessage[PAGE_LANG]);
@@ -333,7 +333,7 @@
   document.querySelectorAll(".js-hours-display").forEach(el => el.textContent = CONFIG.hours[PAGE_LANG]);
   document.querySelectorAll(".js-city-display").forEach(el => el.textContent = CONFIG.city[PAGE_LANG]);
 
-  // copiar telefone / e-mail
+  // copy phone / email
   document.querySelectorAll(".copy-btn").forEach(btn => {
     btn.addEventListener("click", async () => {
       const target = btn.getAttribute("data-copy-target");
@@ -341,13 +341,13 @@
       try{
         await navigator.clipboard.writeText(text);
         const original = btn.textContent;
-        btn.textContent = "copiado!";
+        btn.textContent = "copied!";
         setTimeout(() => btn.textContent = original, 1600);
-      }catch(e){ /* clipboard indisponível, ignora silenciosamente */ }
+      }catch(e){ /* clipboard unavailable, fail silently */ }
     });
   });
 
-  // menu mobile
+  // mobile menu
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
   menuToggle.addEventListener("click", () => {
@@ -361,13 +361,13 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Aviso: se o navegador do visitante não estiver em português e ele
-  // ainda não tiver dispensado o aviso, sugerimos a versão em inglês.
+  // Notice: if the visitor's browser is set to Portuguese and they haven't
+  // dismissed this before, suggest the Portuguese page.
   (function(){
     const banner = document.getElementById("langBanner");
     const dismissed = localStorage.getItem("rg-lang-banner-dismissed");
     const browserLang = (navigator.language || "").toLowerCase();
-    if (!dismissed && !browserLang.startsWith("pt")) {
+    if (!dismissed && browserLang.startsWith("pt")) {
       banner.classList.add("show");
     }
     document.getElementById("closeLangBanner").addEventListener("click", () => {
