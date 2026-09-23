@@ -429,5 +429,44 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
     });
   })();
 </script>
-</body>
+<!-- ============ RG LEADS — HTML ============ -->
+<div class="rg-topbar" id="rgTop">
+  <span data-rg="topText"></span>
+  <button type="button" data-rg-open data-rg="topBtn"></button>
+</div>
+
+  <h1>Sua página aqui</h1>
+  <p>Role até o final, clique na barra do topo ou aguarde ~15 s para ver o pop-up.</p>
+  <div style="height:70vh"></div>
+</div>
+
+<section class="rg-cta" id="orcamento-email">
+  <div class="rg-cta-in">
+    <h2 data-rg="ctaTitle"></h2>
+    <p data-rg="ctaText"></p>
+    <form class="rg-form" data-rg-form novalidate>
+      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
+      <button type="submit" data-rg="ctaBtn"></button>
+      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
+      <div class="rg-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<div class="rg-overlay" id="rgOverlay" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
+  <div class="rg-modal">
+    <button class="rg-x" type="button" data-rg-close aria-label="Fechar">&times;</button>
+    <span class="rg-badge" data-rg="badge"></span>
+    <h3 id="rgTitle" data-rg="mTitle"></h3>
+    <p data-rg="mText"></p>
+    <ul class="rg-perks"><li data-rg="perk1"></li><li data-rg="perk2"></li><li data-rg="perk3"></li></ul>
+    <form data-rg-form novalidate>
+      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
+      <button class="rg-go" type="submit" data-rg="mBtn"></button>
+      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
+      <div class="rg-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<!-- ============ /RG LEADS — HTML ============ --></body>
 </html>
