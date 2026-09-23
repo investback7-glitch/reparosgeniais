@@ -468,5 +468,83 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
     </form>
   </div>
 </div>
-<!-- ============ /RG LEADS — HTML ============ --></body>
+<!-- ============ /RG LEADS — HTML ============ --><script id="rg-leads-js">
+(function(){
+  // >>> COLE AQUI a URL do seu formulário (Formspree, Getform, Make/Zapier webhook...)
+  var LEADS_ENDPOINT = "https://formspree.io/f/myezjojn"; // ex.: "https://formspree.io/f/SEU_ID"
+  var SHOW_AFTER_MS = 15000; // pop-up automático após 15 s (0 = desativa)
+
+  var T = {
+    pt:{
+      topText:"🔧 Algo quebrado em casa? Peça seu orçamento sem compromisso.",topBtn:"Quero orçamento",
+      ctaTitle:"Precisando de reparos? Deixe seu melhor e-mail.",
+      ctaText:"Nossa equipe entra em contato para entender o que precisa ser consertado e enviar um orçamento rápido — sem compromisso.",
+      ph:"Seu melhor e-mail",ctaBtn:"Quero ser contatado",
+      consent:"Concordo em receber contato sobre meu orçamento.",
+      badge:"ORÇAMENTO GRATUITO",mTitle:"Precisa de reparos? Fale com a gente!",
+      mText:"Deixe seu melhor e-mail e um especialista entra em contato para resolver o seu problema.",
+      perk1:"✔ Resposta rápida",perk2:"✔ Sem compromisso",perk3:"✔ Profissionais de confiança",
+      mBtn:"Receber contato",bad:"Digite um e-mail válido.",cons:"Marque a caixa de concordância.",
+      ok:"Obrigado! Entraremos em contato em breve. ✅",err:"Não foi possível enviar. Tente novamente.",close:"Fechar"},
+    en:{
+      topText:"🔧 Something broken at home? Get a no-obligation quote.",topBtn:"Get a quote",
+      ctaTitle:"Need repairs? Leave your best email.",
+      ctaText:"Our team will get in touch to understand what needs fixing and send you a quick quote — no strings attached.",
+      ph:"Your best email",ctaBtn:"Contact me",
+      consent:"I agree to be contacted about my quote.",
+      badge:"FREE QUOTE",mTitle:"Need repairs? Let's talk!",
+      mText:"Drop your best email and a specialist will reach out to solve your problem.",
+      perk1:"✔ Fast reply",perk2:"✔ No obligation",perk3:"✔ Trusted professionals",
+      mBtn:"Get in touch",bad:"Please enter a valid email.",cons:"Please tick the consent box.",
+      ok:"Thank you! We'll be in touch soon. ✅",err:"Could not send. Please try again.",close:"Close"}
+  };
+  var lang=(document.documentElement.lang||"pt").toLowerCase().indexOf("en")===0?"en":"pt";
+  var t=T[lang];
+
+  document.querySelectorAll("[data-rg]").forEach(function(el){
+    var k=el.getAttribute("data-rg");
+    if(k==="ph") el.placeholder=t.ph; else el.textContent=t[k];
+  });
+  var ov=document.getElementById("rgOverlay"), shown=false, lastFocus=null;
+  try{ shown = sessionStorage.getItem("rgShown")==="1"; }catch(e){}
+
+  function open(){
+    lastFocus=document.activeElement; ov.classList.add("open");
+    try{sessionStorage.setItem("rgShown","1");}catch(e){} shown=true;
+    setTimeout(function(){ov.querySelector("input[type=email]").focus();},50);
+  }
+  function close(){ ov.classList.remove("open"); if(lastFocus) lastFocus.focus(); }
+  document.querySelectorAll("[data-rg-open]").forEach(function(b){b.addEventListener("click",open)});
+  document.querySelectorAll("[data-rg-close]").forEach(function(b){b.setAttribute("aria-label",t.close);b.addEventListener("click",close)});
+  ov.addEventListener("click",function(e){if(e.target===ov)close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")close()});
+
+  // Gatilhos automáticos (1x por sessão): tempo e intenção de saída
+  if(!shown && SHOW_AFTER_MS>0) setTimeout(function(){if(!shown)open()},SHOW_AFTER_MS);
+  document.addEventListener("mouseout",function(e){
+    if(!shown && e.clientY<=0 && !e.relatedTarget) open();
+  });
+
+  document.querySelectorAll("[data-rg-form]").forEach(function(form){
+    var msg=form.querySelector(".rg-msg"), btn=form.querySelector("button[type=submit]");
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var email=form.email.value.trim();
+      msg.className="rg-msg";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent=t.bad;msg.classList.add("err");return;}
+      if(!form.consent.checked){msg.textContent=t.cons;msg.classList.add("err");return;}
+      btn.disabled=true;
+      var payload={email:email,lang:lang,page:location.href,source:form.closest(".rg-modal")?"popup":"rodape",date:new Date().toISOString()};
+      var send = LEADS_ENDPOINT
+        ? fetch(LEADS_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw 0})
+        : Promise.resolve(); // sem endpoint: modo demonstração (nada é enviado)
+      send.then(function(){
+        msg.textContent=t.ok;msg.classList.add("ok");form.reset();
+        if(form.closest(".rg-modal")) setTimeout(close,2200);
+      }).catch(function(){msg.textContent=t.err;msg.classList.add("err");})
+        .then(function(){btn.disabled=false;});
+    });
+  });
+})();
+</script></body>
 </html>
