@@ -1,6 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style id="rg-leads-css">
+:root{
+  --rg-primary:#f5a300;      /* cor de destaque — combine com seu styles.css */
+  --rg-primary-dark:#c98500;
+  --rg-ink:#14213d;
+  --rg-bg:#ffffff;
+  --rg-muted:#5b6478;
+  --rg-line:#e4e7ee;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--rg-bg:#1b2033;--rg-ink:#f3f5fa;--rg-muted:#a4adc4;--rg-line:#2d3450}
+}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f4f6fb;color:#222}
+.demo{max-width:720px;margin:0 auto;padding:80px 20px;text-align:center}
+
+/* Barra do topo */
+.rg-topbar{background:var(--rg-ink);color:#fff;font-size:14px;padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
+.rg-topbar button{background:var(--rg-primary);color:#1a1a1a;border:0;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:13px}
+.rg-topbar button:hover{background:var(--rg-primary-dark);color:#fff}
+
+/* Bloco inferior */
+.rg-cta{background:linear-gradient(135deg,var(--rg-ink),#243b6b);color:#fff;padding:56px 20px}
+.rg-cta-in{max-width:760px;margin:0 auto;text-align:center}
+.rg-cta h2{margin:0 0 10px;font-size:clamp(24px,4vw,34px);line-height:1.2}
+.rg-cta p{margin:0 auto 24px;max-width:560px;opacity:.9;line-height:1.5}
+.rg-form{display:flex;gap:10px;max-width:560px;margin:0 auto;flex-wrap:wrap}
+.rg-form input[type=email]{flex:1 1 240px;padding:14px 16px;border-radius:12px;border:2px solid transparent;font-size:16px;outline:0;background:#fff;color:#14213d}
+.rg-form input[type=email]:focus{border-color:var(--rg-primary)}
+.rg-form button[type=submit]{padding:14px 22px;border:0;border-radius:12px;background:var(--rg-primary);color:#1a1a1a;font-weight:800;font-size:16px;cursor:pointer;flex:0 0 auto}
+.rg-form button[type=submit]:hover{background:var(--rg-primary-dark);color:#fff}
+.rg-form button[disabled]{opacity:.6;cursor:wait}
+.rg-consent{flex:1 1 100%;font-size:12px;opacity:.8;text-align:left;display:flex;gap:8px;align-items:flex-start}
+.rg-msg{flex:1 1 100%;font-size:14px;min-height:20px}
+.rg-msg.err{color:#ffb4b4}.rg-msg.ok{color:#9af0b8}
+
+/* Modal */
+.rg-overlay{position:fixed;inset:0;background:rgba(10,15,30,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999;backdrop-filter:blur(3px)}
+.rg-overlay.open{display:flex;animation:rgfade .25s ease}
+.rg-modal{background:var(--rg-bg);color:var(--rg-ink);width:100%;max-width:440px;border-radius:20px;padding:32px 28px 26px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:rgpop .3s ease}
+.rg-modal .rg-x{position:absolute;top:12px;right:14px;background:none;border:0;font-size:26px;color:var(--rg-muted);cursor:pointer;line-height:1}
+.rg-badge{display:inline-block;background:color-mix(in srgb,var(--rg-primary) 22%,transparent);color:var(--rg-ink);font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.rg-modal h3{margin:0 0 8px;font-size:24px;line-height:1.25}
+.rg-modal p{margin:0 0 18px;color:var(--rg-muted);line-height:1.5;font-size:15px}
+.rg-modal input[type=email]{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:12px;border:2px solid var(--rg-line);font-size:16px;background:transparent;color:var(--rg-ink);outline:0;margin-bottom:12px}
+.rg-modal input[type=email]:focus{border-color:var(--rg-primary)}
+.rg-modal .rg-go{width:100%;padding:14px;border:0;border-radius:12px;background:var(--rg-primary);color:#1a1a1a;font-weight:800;font-size:16px;cursor:pointer}
+.rg-modal .rg-go:hover{background:var(--rg-primary-dark);color:#fff}
+.rg-modal .rg-consent{color:var(--rg-muted);margin:10px 0 0;font-size:12px}
+.rg-modal .rg-msg.err{color:#d33}.rg-modal .rg-msg.ok{color:#1c8f4d;font-weight:600}
+.rg-perks{display:flex;gap:14px;margin:0 0 16px;padding:0;list-style:none;font-size:13px;color:var(--rg-muted);flex-wrap:wrap}
+@keyframes rgfade{from{opacity:0}to{opacity:1}}
+@keyframes rgpop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.rg-overlay.open,.rg-modal{animation:none}}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reparos Geniais — Home Repairs, Renovations & Furniture Assembly</title>
