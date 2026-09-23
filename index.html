@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><style id="rg-leads-css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reparos Geniais — Reformas, reparos e montagens para sua casa</title>
+<meta name="description" content="Reformas em geral, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas gerais, reparos hidráulicos e de alvenaria. Peça seu orçamento por WhatsApp, telefone ou e-mail.">
+<meta name="theme-color" content="#1B2A38">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Reparos Geniais — Reformas, reparos e montagens">
+<meta property="og:description" content="Cuidamos da sua casa: reformas, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas, hidráulica e alvenaria.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- SEO multilíngue: troque "https://SEU-DOMINIO" pela URL real depois do deploy na Vercel. -->
+<link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/">
+<link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/">
+<link rel="alternate" hreflang="x-default" href="https://SEU-DOMINIO/">
+<link rel="canonical" href="https://SEU-DOMINIO/">
+
+<!-- Favicon simples via SVG inline -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231B2A38'/%3E%3Cpath d='M14.5 4.5a4 4 0 0 0-5.4 4.9L4 14.5V18h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z' fill='%23D98E2B'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style id="rg-leads-css">
 :root{
-  --rg-primary:#f5a300;      /* cor de destaque — combine com seu styles.css */
-  --rg-primary-dark:#c98500;
-  --rg-ink:#14213d;
+  --rg-primary:#D98E2B;
+  --rg-primary-dark:#b87519;
+  --rg-ink:#1B2A38;
   --rg-bg:#ffffff;
   --rg-muted:#5b6478;
   --rg-line:#e4e7ee;
@@ -12,16 +40,14 @@
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){--rg-bg:#1b2033;--rg-ink:#f3f5fa;--rg-muted:#a4adc4;--rg-line:#2d3450}
 }
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f4f6fb;color:#222}
-.demo{max-width:720px;margin:0 auto;padding:80px 20px;text-align:center}
 
 /* Barra do topo */
-.rg-topbar{background:var(--rg-ink);color:#fff;font-size:14px;padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
+.rg-topbar{background:#1B2A38;color:#fff;font-size:14px;padding:10px 16px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center}
 .rg-topbar button{background:var(--rg-primary);color:#1a1a1a;border:0;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:13px}
 .rg-topbar button:hover{background:var(--rg-primary-dark);color:#fff}
 
-/* Bloco inferior */
-.rg-cta{background:linear-gradient(135deg,var(--rg-ink),#243b6b);color:#fff;padding:56px 20px}
+/* Bloco antes do rodapé */
+.rg-cta{background:linear-gradient(135deg,#1B2A38,#243b6b);color:#fff;padding:56px 20px}
 .rg-cta-in{max-width:760px;margin:0 auto;text-align:center}
 .rg-cta h2{margin:0 0 10px;font-size:clamp(24px,4vw,34px);line-height:1.2}
 .rg-cta p{margin:0 auto 24px;max-width:560px;opacity:.9;line-height:1.5}
@@ -54,35 +80,14 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
 @keyframes rgpop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.rg-overlay.open,.rg-modal{animation:none}}
 </style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reparos Geniais — Reformas, reparos e montagens para sua casa</title>
-<meta name="description" content="Reformas em geral, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas gerais, reparos hidráulicos e de alvenaria. Peça seu orçamento por WhatsApp, telefone ou e-mail.">
-<meta name="theme-color" content="#1B2A38">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Reparos Geniais — Reformas, reparos e montagens">
-<meta property="og:description" content="Cuidamos da sua casa: reformas, bricolagem, montagem de móveis, instalação de eletrodomésticos, limpezas, hidráulica e alvenaria.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:locale:alternate" content="en_US">
-
-<!-- SEO multilíngue: diz ao Google que existe uma versão em inglês desta mesma página.
-     Troque "https://SEU-DOMINIO" pela URL real depois do deploy na Vercel. -->
-<link rel="alternate" hreflang="pt-BR" href="https://SEU-DOMINIO/">
-<link rel="alternate" hreflang="en" href="https://SEU-DOMINIO/en/">
-<link rel="alternate" hreflang="x-default" href="https://SEU-DOMINIO/">
-<link rel="canonical" href="https://SEU-DOMINIO/">
-
-<!-- Favicon simples via SVG inline -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231B2A38'/%3E%3Cpath d='M14.5 4.5a4 4 0 0 0-5.4 4.9L4 14.5V18h3.5l5.1-5.1a4 4 0 0 0 4.9-5.4l-2.6 2.6-2-2 2.6-2.6z' fill='%23D98E2B'/%3E%3C/svg%3E">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- Barra de orçamento no topo -->
+<div class="rg-topbar" id="rgTop">
+  <span data-rg="topText"></span>
+  <button type="button" data-rg-open data-rg="topBtn"></button>
+</div>
 
 <!-- Aviso automático para quem chega com o navegador em outro idioma -->
 <div class="lang-banner" id="langBanner">
@@ -342,6 +347,22 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     CAPTURA DE E-MAIL (antes do rodapé)
+     ============================================================ -->
+<section class="rg-cta" id="orcamento-email">
+  <div class="rg-cta-in">
+    <h2 data-rg="ctaTitle"></h2>
+    <p data-rg="ctaText"></p>
+    <form class="rg-form" data-rg-form novalidate>
+      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
+      <button type="submit" data-rg="ctaBtn"></button>
+      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
+      <div class="rg-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
 </main>
 
 <!-- ============================================================
@@ -366,6 +387,23 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
   <span class="ring" aria-hidden="true"></span>
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3 6.6 3 11c0 2 .9 3.9 2.4 5.3L4.6 20l3.9-1.3c1 .4 2.2.6 3.5.6 5 0 9-3.6 9-8S17 3 12 3z"/></svg>
 </a>
+
+<!-- Pop-up de captura -->
+<div class="rg-overlay" id="rgOverlay" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
+  <div class="rg-modal">
+    <button class="rg-x" type="button" data-rg-close aria-label="Fechar">&times;</button>
+    <span class="rg-badge" data-rg="badge"></span>
+    <h3 id="rgTitle" data-rg="mTitle"></h3>
+    <p data-rg="mText"></p>
+    <ul class="rg-perks"><li data-rg="perk1"></li><li data-rg="perk2"></li><li data-rg="perk3"></li></ul>
+    <form data-rg-form novalidate>
+      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
+      <button class="rg-go" type="submit" data-rg="mBtn"></button>
+      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
+      <div class="rg-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
 
 <!-- Dados de contato compartilhados entre PT e EN: edite em config.js -->
 <script src="config.js"></script>
@@ -418,60 +456,22 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
   // ainda não tiver dispensado o aviso, sugerimos a versão em inglês.
   (function(){
     const banner = document.getElementById("langBanner");
-    const dismissed = localStorage.getItem("rg-lang-banner-dismissed");
+    let dismissed = null;
+    try{ dismissed = localStorage.getItem("rg-lang-banner-dismissed"); }catch(e){}
     const browserLang = (navigator.language || "").toLowerCase();
     if (!dismissed && !browserLang.startsWith("pt")) {
       banner.classList.add("show");
     }
     document.getElementById("closeLangBanner").addEventListener("click", () => {
       banner.classList.remove("show");
-      localStorage.setItem("rg-lang-banner-dismissed", "1");
+      try{ localStorage.setItem("rg-lang-banner-dismissed", "1"); }catch(e){}
     });
   })();
 </script>
-<!-- ============ RG LEADS — HTML ============ -->
-<div class="rg-topbar" id="rgTop">
-  <span data-rg="topText"></span>
-  <button type="button" data-rg-open data-rg="topBtn"></button>
-</div>
 
-  <h1>Sua página aqui</h1>
-  <p>Role até o final, clique na barra do topo ou aguarde ~15 s para ver o pop-up.</p>
-  <div style="height:70vh"></div>
-</div>
-
-<section class="rg-cta" id="orcamento-email">
-  <div class="rg-cta-in">
-    <h2 data-rg="ctaTitle"></h2>
-    <p data-rg="ctaText"></p>
-    <form class="rg-form" data-rg-form novalidate>
-      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
-      <button type="submit" data-rg="ctaBtn"></button>
-      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
-      <div class="rg-msg" role="status" aria-live="polite"></div>
-    </form>
-  </div>
-</section>
-
-<div class="rg-overlay" id="rgOverlay" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
-  <div class="rg-modal">
-    <button class="rg-x" type="button" data-rg-close aria-label="Fechar">&times;</button>
-    <span class="rg-badge" data-rg="badge"></span>
-    <h3 id="rgTitle" data-rg="mTitle"></h3>
-    <p data-rg="mText"></p>
-    <ul class="rg-perks"><li data-rg="perk1"></li><li data-rg="perk2"></li><li data-rg="perk3"></li></ul>
-    <form data-rg-form novalidate>
-      <input type="email" name="email" autocomplete="email" required data-rg="ph" aria-label="E-mail">
-      <button class="rg-go" type="submit" data-rg="mBtn"></button>
-      <label class="rg-consent"><input type="checkbox" name="consent" required><span data-rg="consent"></span></label>
-      <div class="rg-msg" role="status" aria-live="polite"></div>
-    </form>
-  </div>
-</div>
-<!-- ============ /RG LEADS — HTML ============ --><script id="rg-leads-js">
+<script id="rg-leads-js">
 (function(){
-  // >>> COLE AQUI a URL do seu formulário (Formspree, Getform, Make/Zapier webhook...)
-  var LEADS_ENDPOINT = "https://formspree.io/f/myezjojn"; // ex.: "https://formspree.io/f/SEU_ID"
+  var LEADS_ENDPOINT = "https://formspree.io/f/myezjojn";
   var SHOW_AFTER_MS = 15000; // pop-up automático após 15 s (0 = desativa)
 
   var T = {
@@ -537,7 +537,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
       var payload={email:email,lang:lang,page:location.href,source:form.closest(".rg-modal")?"popup":"rodape",date:new Date().toISOString()};
       var send = LEADS_ENDPOINT
         ? fetch(LEADS_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw 0})
-        : Promise.resolve(); // sem endpoint: modo demonstração (nada é enviado)
+        : Promise.resolve();
       send.then(function(){
         msg.textContent=t.ok;msg.classList.add("ok");form.reset();
         if(form.closest(".rg-modal")) setTimeout(close,2200);
@@ -546,5 +546,6 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
     });
   });
 })();
-</script></body>
+</script>
+</body>
 </html>
