@@ -88,6 +88,17 @@
     tabs.appendChild(b);
   });
 
+  // Trabalhador ilustrado (aparece enquanto não houver foto real em /img/carousel/)
+  function worker(n, tool) {
+    var S = ["#f1c9a5", "#d9a074", "#8d5a3b", "#f5d5b8"][n % 4], H = ["#2b1d14", "#6b4423", "#1a1a1a", "#a86b2a"][(n + 1) % 4],
+        U = ["#1B2A38", "#2f6fb0", "#d98e2b", "#3d8f8a"][(n + 2) % 4], K = ["#f5b301", "#e5e7eb", "#e2572b", "#f5b301"][n % 4], w = n % 3 === 1;
+    return '<svg viewBox="0 0 120 130"><path d="M12 130c0-30 18-46 48-46s48 16 48 46z" fill="' + U + '"/><rect x="78" y="100" width="16" height="10" rx="2" fill="#fff" opacity=".35"/>' +
+      '<rect x="50" y="68" width="20" height="22" rx="8" fill="' + S + '"/>' + (w ? '<path d="M32 50v34a9 9 0 0 0 9 5V52zM88 50v34a9 9 0 0 1-9 5V52z" fill="' + H + '"/>' : "") +
+      '<circle cx="60" cy="50" r="26" fill="' + S + '"/><circle cx="51" cy="56" r="2.6" fill="#222"/><circle cx="69" cy="56" r="2.6" fill="#222"/>' +
+      '<path d="M52 66q8 7 16 0" stroke="#7a3f2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>' +
+      '<path d="M32 46a28 28 0 0 1 56 0z" fill="' + K + '"/><rect x="28" y="44" width="64" height="7" rx="3" fill="' + K + '"/></svg><i class="tb">' + tool + '</i>';
+  }
+
   function show(k) {
     cur = k; var c = C[k];
     Array.prototype.forEach.call(tabs.children, function (t, j) { t.setAttribute("aria-selected", j === k); });
@@ -97,7 +108,7 @@
       var a = document.createElement("button");
       a.className = "cg-card"; a.type = "button";
       a.style.setProperty("--a", c.c[0]); a.style.setProperty("--b", c.c[1]);
-      a.innerHTML = '<span class="em" aria-hidden="true">' + s[2] + '</span><span class="lb"><b>' + s[i] + '</b><span>' + T.pick[i] + ' →</span></span>';
+      a.innerHTML = '<span class="em" aria-hidden="true">' + worker(k + j, s[2]) + '</span><span class="lb"><b>' + s[i] + '</b><span>' + T.pick[i] + ' →</span></span>';
       var url = IMG_PATH + c.id + "-" + (j + 1) + ".jpg", im = new Image();
       im.onload = function () { a.style.backgroundImage = 'url("' + url + '")'; a.querySelector(".em").style.display = "none"; };
       im.src = url;
