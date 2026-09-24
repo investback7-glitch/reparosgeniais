@@ -1,16 +1,15 @@
 /* Reparos Geniais — carrossel de serviços (PT + EN) */
 .cg{--cg-ink:#1B2A38;--cg-acc:#D98E2B;--cg-acc-d:#b87619;--cg-bg:#f4f2ee;--cg-card:#fff;--cg-mut:#5b6672;--cg-line:#dcd8d0;
   background:var(--cg-bg);color:var(--cg-ink);padding:44px 0 56px;font-family:"IBM Plex Sans",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cg{--cg-ink:#eef1f4;--cg-bg:#16202a;--cg-card:#1f2c38;--cg-mut:#a9b4be;--cg-line:#324150}}
 .cg-wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .cg-intro{max-width:760px;margin-bottom:28px}
-.cg-intro h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,50px);line-height:1.1;margin:0 0 12px}
-.cg-intro p{margin:0 0 18px;color:var(--cg-mut);font-size:17px;line-height:1.55}
+.cg-intro h1{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(30px,5vw,50px);line-height:1.1;margin:0 0 12px;color:#1B2A38}
+.cg-intro p{margin:0 0 18px;color:#5b6672;font-size:17px;line-height:1.55}
 .cg-cta{display:flex;gap:10px;flex-wrap:wrap}
 .cg-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--cg-acc);cursor:pointer;font-family:inherit}
 .cg-btn.p{background:var(--cg-acc);color:#1a1a1a}.cg-btn.p:hover{background:var(--cg-acc-d);border-color:var(--cg-acc-d);color:#fff}
 .cg-btn.o{background:transparent;color:var(--cg-ink);border-color:var(--cg-ink)}.cg-btn.o:hover{background:var(--cg-ink);color:var(--cg-bg)}
-.cg-head{font-family:"Fraunces",Georgia,serif;font-size:22px;margin:0 0 14px;font-weight:600}
+.cg-head{font-family:"Fraunces",Georgia,serif;font-size:22px;margin:0 0 14px;font-weight:600;color:#1B2A38}
 
 /* Abas */
 .cg-tabs-box{position:relative;border-bottom:1px solid var(--cg-line)}
