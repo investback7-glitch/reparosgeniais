@@ -29,12 +29,12 @@
 .cg-track::-webkit-scrollbar{display:none}
 .cg-card{flex:0 0 calc((100% - 48px)/4);min-width:220px;aspect-ratio:4/5;scroll-snap-align:start;position:relative;border:0;border-radius:18px;overflow:hidden;cursor:pointer;color:#fff;text-align:left;padding:0;
   background:linear-gradient(150deg,var(--a),var(--b));background-size:cover;background-position:center;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-.cg-card .em{position:absolute;top:18%;left:50%;transform:translateX(-50%);font-size:64px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cg-card .em{position:absolute;top:7%;left:50%;width:68%;transform:translateX(-50%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .cg-card .lb{position:absolute;inset:auto 0 0 0;padding:44px 16px 16px;background:linear-gradient(transparent,rgba(10,16,22,.85));display:flex;flex-direction:column;gap:6px}
 .cg-card .lb b{font-size:17px;line-height:1.25}
 .cg-card .lb span{font-size:13px;font-weight:600;color:#ffd79a;opacity:0;transform:translateY(6px);transition:.3s}
 .cg-card:hover,.cg-card:focus-visible{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 18px 34px rgba(0,0,0,.28)}
-.cg-card:hover .em{transform:translateX(-50%) scale(1.2) rotate(8deg)}
+.cg-card:hover .em{transform:translateX(-50%) scale(1.07)}
 .cg-card:hover .lb span,.cg-card:focus-visible .lb span{opacity:1;transform:none}
 .cg-arrow{position:absolute;top:42%;width:42px;height:42px;border-radius:50%;border:0;background:var(--cg-card);color:var(--cg-ink);box-shadow:0 4px 14px rgba(0,0,0,.25);font-size:20px;cursor:pointer;z-index:2}
 .cg-arrow.l{left:-14px}.cg-arrow.r{right:-14px}
@@ -58,3 +58,5 @@
 .cg-dlg .row{display:flex;gap:10px;flex-wrap:wrap}.cg-dlg .row .cg-btn{flex:1 1 180px;justify-content:center}
 .cg-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:28px;cursor:pointer;color:inherit;line-height:1}
 @media(prefers-reduced-motion:reduce){.cg-card,.cg-card .em,.cg-tab .i,.cg-dlg[open]{transition:none;animation:none}}
+.cg-card .em svg{width:100%;display:block}
+.cg-card .tb{position:absolute;right:-6px;bottom:14px;width:50px;height:50px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:28px;font-style:normal;box-shadow:0 4px 12px rgba(0,0,0,.3)}
