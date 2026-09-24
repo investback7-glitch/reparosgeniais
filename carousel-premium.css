@@ -1,0 +1,174 @@
+/* =========================================================
+   REPAROS GENIAIS — CAROUSEL PREMIUM
+   Drop-in enhancement: não substitui o carousel existente.
+   ========================================================= */
+
+#rg-carousel {
+  --rg-carousel-ease: cubic-bezier(.22, 1, .36, 1);
+  --rg-carousel-speed: 900ms;
+  --rg-carousel-radius: 24px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--rg-carousel-radius);
+  background: #101923;
+  box-shadow:
+    0 22px 55px rgba(15, 27, 39, .16),
+    0 4px 14px rgba(15, 27, 39, .08);
+}
+
+/* Mantém a área visual estável durante a troca */
+#rg-carousel .rg-premium-track,
+#rg-carousel .carousel-track,
+#rg-carousel .slider-track,
+#rg-carousel .slides-track,
+#rg-carousel .track {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  transition:
+    transform var(--rg-carousel-speed) var(--rg-carousel-ease) !important;
+}
+
+/* Suaviza qualquer slide encontrado pelo enhancer */
+#rg-carousel .rg-premium-slide {
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Imagens: micro-zoom cinematográfico, quase imperceptível */
+#rg-carousel .rg-premium-slide img,
+#rg-carousel .carousel-slide img,
+#rg-carousel .slide img,
+#rg-carousel .carousel-item img,
+#rg-carousel .swiper-slide img,
+#rg-carousel img {
+  transform: scale(1.018) translateZ(0);
+  transform-origin: center center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  transition:
+    transform 1100ms var(--rg-carousel-ease),
+    opacity 700ms ease !important;
+}
+
+/* Estado ativo */
+#rg-carousel .rg-premium-slide.rg-is-active img,
+#rg-carousel .carousel-slide.active img,
+#rg-carousel .carousel-slide.is-active img,
+#rg-carousel .slide.active img,
+#rg-carousel .slide.is-active img,
+#rg-carousel .carousel-item.active img,
+#rg-carousel .swiper-slide-active img {
+  transform: scale(1.002) translateZ(0);
+  opacity: 1;
+}
+
+/* Slides fora de foco: diferença mínima, sem deixar a imagem "apagada" */
+#rg-carousel .rg-premium-slide:not(.rg-is-active) img {
+  opacity: .965;
+}
+
+/* Vinheta extremamente discreta para dar profundidade */
+#rg-carousel::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 30%;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    to top,
+    rgba(7, 15, 22, .20),
+    rgba(7, 15, 22, 0)
+  );
+}
+
+/* Botões — funciona com vários nomes comuns */
+#rg-carousel button,
+#rg-carousel .carousel-prev,
+#rg-carousel .carousel-next,
+#rg-carousel .prev,
+#rg-carousel .next,
+#rg-carousel .slider-prev,
+#rg-carousel .slider-next {
+  transition:
+    transform 220ms var(--rg-carousel-ease),
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    opacity 220ms ease !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#rg-carousel button:hover,
+#rg-carousel .carousel-prev:hover,
+#rg-carousel .carousel-next:hover,
+#rg-carousel .prev:hover,
+#rg-carousel .next:hover,
+#rg-carousel .slider-prev:hover,
+#rg-carousel .slider-next:hover {
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 8px 22px rgba(0,0,0,.20);
+}
+
+#rg-carousel button:active,
+#rg-carousel .carousel-prev:active,
+#rg-carousel .carousel-next:active,
+#rg-carousel .prev:active,
+#rg-carousel .next:active,
+#rg-carousel .slider-prev:active,
+#rg-carousel .slider-next:active {
+  transform: translateY(-50%) scale(.96);
+}
+
+/* Dots/indicadores */
+#rg-carousel .carousel-dot,
+#rg-carousel .slider-dot,
+#rg-carousel .dot,
+#rg-carousel [class*="dot"] {
+  transition:
+    transform 300ms var(--rg-carousel-ease),
+    opacity 250ms ease,
+    width 350ms var(--rg-carousel-ease),
+    background-color 250ms ease !important;
+}
+
+/* Foco de teclado */
+#rg-carousel button:focus-visible,
+#rg-carousel a:focus-visible {
+  outline: 3px solid rgba(217,142,43,.75);
+  outline-offset: 3px;
+}
+
+/* Evita flash durante a inicialização */
+#rg-carousel.rg-premium-ready {
+  animation: rgCarouselReveal 650ms var(--rg-carousel-ease) both;
+}
+
+@keyframes rgCarouselReveal {
+  from { opacity: .01; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Mobile: menos sombra e cantos mais discretos */
+@media (max-width: 640px) {
+  #rg-carousel {
+    --rg-carousel-radius: 18px;
+    box-shadow:
+      0 14px 34px rgba(15, 27, 39, .14),
+      0 3px 10px rgba(15, 27, 39, .07);
+  }
+}
+
+/* Respeita visitantes que pedem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  #rg-carousel,
+  #rg-carousel * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
